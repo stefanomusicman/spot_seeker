@@ -7,17 +7,19 @@ import java.util.ArrayList;
 public class Listing {
     private int listId;
     private String address;
-    private String coordinates;
+    private double latitude;
+    private double longitude;
     private Boolean isAvailable;
     private ArrayList<String> additionalServices;
 
     public Listing() {
     }
 
-    public Listing(int listId, String address, String coordinates, Boolean isAvailable, ArrayList<String> additionalServices) {
+    public Listing(int listId, String address, double latitude, double longitude, Boolean isAvailable, ArrayList<String> additionalServices) {
         this.listId = listId;
         this.address = address;
-        this.coordinates = coordinates;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.isAvailable = isAvailable;
         this.additionalServices = additionalServices;
     }
@@ -38,12 +40,20 @@ public class Listing {
         this.address = address;
     }
 
-    public String getCoordinates() {
-        return coordinates;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setCoordinates(String coordinates) {
-        this.coordinates = coordinates;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 
     public Boolean getAvailable() {
