@@ -9,17 +9,19 @@ public class User {
     private String firstName;
     private String lastName;
     private String userName;
+    private String password;
     private ArrayList<Integer> listingIds;
     private ArrayList<Integer> transactionIds;
 
     public User() {
     }
 
-    public User(int userId, String firstName, String lastName, String userName, ArrayList<Integer> listingIds, ArrayList<Integer> transactionIds) {
+    public User(int userId, String firstName, String lastName, String userName, String password, ArrayList<Integer> listingIds, ArrayList<Integer> transactionIds) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
+        this.password = password;
         this.listingIds = listingIds;
         this.transactionIds = transactionIds;
     }
@@ -54,6 +56,14 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public ArrayList<Integer> getListingIds() {
