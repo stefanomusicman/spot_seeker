@@ -31,7 +31,7 @@
         android:id="@+id/sign_up_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SignUp Here!"
+        android:text="Sign Up Here!"
         android:textSize="20sp"
         android:transitionName="logo_name"/>
 
@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/userName"
-            android:hint="UserName"
+            android:hint="User Name"
             app:counterEnabled="true"
             app:counterMaxLength="10"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -117,7 +117,7 @@
             android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign Un"
+            android:text="Confirm"
             android:background="#FA2750"
             android:textColor="#fff"
             />

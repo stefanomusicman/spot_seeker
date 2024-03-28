@@ -26,9 +26,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- LoginScreen -->
+
         <activity
             android:name=".LoginScreen"
             android:exported="false" /> <!-- MainActivity -->
+        <activity
+            android:name=".HomeScreen"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false">
