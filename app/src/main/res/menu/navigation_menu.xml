@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/man"
+        android:icon="@drawable/man"
+        android:title="Profile"
+        />
+    <item android:id="@+id/parkingSpot"
+        android:icon="@drawable/spots"
+        android:title="My Spots"
+        />
+    <item android:id="@+id/menu"
+        android:icon="@drawable/dashboard"
+        android:title="Dashboard"
+        />
+
+</menu>
