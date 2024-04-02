@@ -32,6 +32,18 @@ public class LoginScreen extends AppCompatActivity {
                 overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
             }
         });
+        btnSignIn.setOnClickListener( new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                int id = v.getId();
+                if (id == R.id.btnSignIn) {
+                    ExecuteLogin();
+                } else {
+                    finish();
+                }
+            }
+        });
     }
 
     private void initialize() {
@@ -45,4 +57,8 @@ public class LoginScreen extends AppCompatActivity {
         password = findViewById(R.id.password);
     }
 
+    private void ExecuteLogin() {
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+    }
 }
