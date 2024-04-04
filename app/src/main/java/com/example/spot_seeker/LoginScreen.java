@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class LoginScreen extends AppCompatActivity implements ValueEventListener {
+public class LoginScreen extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
     Button btnSignIn, btnSignUp, btnforgotPassword;
     ImageView logoImage;
     TextView logoText;
@@ -35,28 +35,6 @@ public class LoginScreen extends AppCompatActivity implements ValueEventListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
         initialize();
-
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginScreen.this, SignUpScreen.class);
-                startActivity(intent);
-                //horizontal transition animation
-                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-            }
-        });
-        btnSignIn.setOnClickListener( new View.OnClickListener(){
-
-            @Override
-            public void onClick(View v) {
-                int id = v.getId();
-                if (id == R.id.btnSignIn) {
-                    ExecuteLogin();
-                } else {
-                    finish();
-                }
-            }
-        });
     }
 
     private void initialize() {
@@ -65,11 +43,27 @@ public class LoginScreen extends AppCompatActivity implements ValueEventListener
         edPassword = findViewById(R.id.edPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp = findViewById(R.id.btnSignUp);
+        btnSignIn.setOnClickListener(this);
+        btnSignUp.setOnClickListener(this);
         btnforgotPassword = findViewById(R.id.btnForgot);
         logoImage = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if(id == R.id.btnSignIn) {
+            ExecuteLogin();
+        }
+        if(id == R.id.btnSignUp) {
+            Intent intent = new Intent(LoginScreen.this, SignUpScreen.class);
+            startActivity(intent);
+            //horizontal transition animation
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        }
     }
 
     private void ExecuteLogin() {
