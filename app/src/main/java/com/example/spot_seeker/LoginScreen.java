@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -17,6 +19,7 @@ public class LoginScreen extends AppCompatActivity {
     ImageView logoImage;
     TextView logoText;
     TextInputLayout username, password;
+    EditText edUsername, edPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +50,8 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     private void initialize() {
-
+        edUsername = findViewById(R.id.edUsername);
+        edPassword = findViewById(R.id.edPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp = findViewById(R.id.btnSignUp);
         btnforgotPassword = findViewById(R.id.btnForgot);
@@ -58,6 +62,14 @@ public class LoginScreen extends AppCompatActivity {
     }
 
     private void ExecuteLogin() {
+        if(edUsername.getText().length() == 0) {
+            Toast.makeText(this, "Please enter a Username", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(edPassword.getText().length() == 0) {
+            Toast.makeText(this, "Please enter a Password", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = new Intent(this, HomeScreen.class);
         startActivity(intent);
     }
