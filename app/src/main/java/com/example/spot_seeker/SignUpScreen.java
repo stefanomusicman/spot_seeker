@@ -4,18 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUpScreen extends AppCompatActivity implements View.OnClickListener {
 
     ImageView logoImage;
     TextView logoText, signUpText;
-    TextInputLayout firstName, lastName, userName, email, password;
+    EditText edFirstName, edLastName, edUsername, edEmail, edPassword;
     Button btnSignIn, btnSignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +33,11 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         logoImage = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
         signUpText = findViewById(R.id.sign_up_text);
-        firstName = findViewById(R.id.firstName);
-        lastName = findViewById(R.id.lastName);
-        userName = findViewById(R.id.userName);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        edFirstName = findViewById(R.id.edFirstName);
+        edLastName = findViewById(R.id.edLastName);
+        edEmail = findViewById(R.id.edEmail);
+        edUsername = findViewById(R.id.edUsername);
+        edPassword = findViewById(R.id.edPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignIn.setOnClickListener(this);
