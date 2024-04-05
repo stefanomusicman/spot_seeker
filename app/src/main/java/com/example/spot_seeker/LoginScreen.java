@@ -27,9 +27,10 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     Button btnSignIn, btnSignUp, btnforgotPassword;
     ImageView logoImage;
     TextView logoText;
-    TextInputLayout username, password;
     EditText edUsername, edPassword;
     DatabaseReference databaseRef;
+    ArrayList<EditText> textFields = new ArrayList<EditText>();
+    boolean isFormValid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +49,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         btnforgotPassword = findViewById(R.id.btnForgot);
         logoImage = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
+        textFields.add(edUsername);
+        textFields.add(edPassword);
     }
 
     @Override
@@ -67,19 +68,15 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     }
 
     private void ExecuteLogin() {
-        if(edUsername.getText().length() == 0) {
-            Toast.makeText(this, "Please enter a Username", Toast.LENGTH_SHORT).show();
-            return;
+        isFormValid = FormValidationHelpers.verifyEmptyFields(textFields);
+        if(!isFormValid) {
+            Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show();
+        } else {
+            // Search through the Users collection to see if there is a document that
+            // exists with the username that was entered
+            String userName = edUsername.getText().toString();
+            databaseRef.orderByChild("userName").equalTo(userName).addListenerForSingleValueEvent(this);
         }
-        if(edPassword.getText().length() == 0) {
-            Toast.makeText(this, "Please enter a Password", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        // Search through the Users collection to see if there is a document that
-        // exists with the username that was entered
-        String userName = edUsername.getText().toString();
-        databaseRef.orderByChild("userName").equalTo(userName).addListenerForSingleValueEvent(this);
     }
 
     @Override

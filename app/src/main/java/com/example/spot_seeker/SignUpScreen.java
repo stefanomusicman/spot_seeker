@@ -10,9 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
 
 public class SignUpScreen extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,6 +23,8 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
     TextView logoText, signUpText;
     EditText edFirstName, edLastName, edUsername, edEmail, edPassword;
     Button btnSignIn, btnSignUp;
+    ArrayList<EditText> textFields = new ArrayList<EditText>();
+    boolean isFormValid = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,19 +47,38 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignIn.setOnClickListener(this);
         btnSignUp.setOnClickListener(this);
+        populateEditTextList();
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         if(id == R.id.btnSignIn) {
-
+            ExecuteRegistration();
         }
         if(id == R.id.btnSignUp) {
             Intent intent = new Intent(SignUpScreen.this, LoginScreen.class);
             startActivity(intent);
             //horizontal transition animation
             overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        }
+    }
+
+    private void populateEditTextList() {
+        textFields.add(edFirstName);
+        textFields.add(edLastName);
+        textFields.add(edUsername);
+        textFields.add(edEmail);
+        textFields.add(edPassword);
+    }
+
+    private void ExecuteRegistration() {
+        // Check if all input fields have been filled with a value
+        isFormValid = FormValidationHelpers.verifyEmptyFields(textFields);
+        if(!isFormValid) {
+            Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "All is good!", Toast.LENGTH_SHORT).show();
         }
     }
 }
