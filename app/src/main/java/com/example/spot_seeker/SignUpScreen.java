@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class SignUpScreen extends AppCompatActivity {
+public class SignUpScreen extends AppCompatActivity implements View.OnClickListener {
 
     ImageView logoImage;
     TextView logoText, signUpText;
@@ -24,20 +24,9 @@ public class SignUpScreen extends AppCompatActivity {
         //horizontal transition animation
         overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         initialize();
-
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignUpScreen.this, LoginScreen.class);
-                startActivity(intent);
-                //horizontal transition animation
-                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-            }
-        });
     }
 
     private void initialize() {
-
         logoImage = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
         signUpText = findViewById(R.id.sign_up_text);
@@ -48,5 +37,21 @@ public class SignUpScreen extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp = findViewById(R.id.btnSignUp);
+        btnSignIn.setOnClickListener(this);
+        btnSignUp.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+        if(id == R.id.btnSignIn) {
+
+        }
+        if(id == R.id.btnSignUp) {
+            Intent intent = new Intent(SignUpScreen.this, LoginScreen.class);
+            startActivity(intent);
+            //horizontal transition animation
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        }
     }
 }
