@@ -17,15 +17,15 @@ public class User {
     public User() {
     }
 
-    public User(int userId, String firstName, String lastName, String email, String userName, String password, ArrayList<Integer> listingIds, ArrayList<Integer> transactionIds) {
+    public User(int userId, String firstName, String lastName, String email, String userName, String password) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.userName = userName;
         this.password = password;
-        this.listingIds = listingIds;
-        this.transactionIds = transactionIds;
+        this.listingIds = new ArrayList<>();
+        this.transactionIds = new ArrayList<>();
     }
 
     public int getUserId() {

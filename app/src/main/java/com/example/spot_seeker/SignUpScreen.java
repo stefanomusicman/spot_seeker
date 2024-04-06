@@ -14,8 +14,12 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+
+import models.User;
 
 public class SignUpScreen extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +28,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
     EditText edFirstName, edLastName, edUsername, edEmail, edPassword;
     Button btnSignIn, btnSignUp;
     ArrayList<EditText> textFields = new ArrayList<EditText>();
+    DatabaseReference databaseRef;
     boolean isFormValid = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,7 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialize() {
+        databaseRef = FirebaseDatabase.getInstance().getReference("Users");
         logoImage = findViewById(R.id.logo_image);
         logoText = findViewById(R.id.logo_name);
         signUpText = findViewById(R.id.sign_up_text);
@@ -78,7 +84,21 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         if(!isFormValid) {
             Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "All is good!", Toast.LENGTH_SHORT).show();
+            AddNewUser();
+            Intent intent = new Intent(this, HomeScreen.class);
+            startActivity(intent);
         }
+    }
+
+    private void AddNewUser() {
+        // Generate a User ID
+        int id = (int) (Math.random() * 10000);
+        String firstName = edFirstName.getText().toString();
+        String lastName = edLastName.getText().toString();
+        String userName = edUsername.getText().toString();
+        String email = edEmail.getText().toString();
+        String password = edPassword.getText().toString();
+        User newUser = new User(id, firstName, lastName, email, userName, password);
+        databaseRef.child(String.valueOf(id)).setValue(newUser);
     }
 }
