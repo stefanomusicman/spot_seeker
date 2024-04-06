@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,14 +11,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
+import models.FormValidationHelpers;
 import models.User;
+import models.UserSingleton;
 
 public class SignUpScreen extends AppCompatActivity implements View.OnClickListener {
 
@@ -99,6 +98,9 @@ public class SignUpScreen extends AppCompatActivity implements View.OnClickListe
         String email = edEmail.getText().toString();
         String password = edPassword.getText().toString();
         User newUser = new User(id, firstName, lastName, email, userName, password);
+        // Store the user in the UserSingleton class that will be
+        // accessible anywhere throughout the app
+        UserSingleton.setUser(newUser);
         databaseRef.child(String.valueOf(id)).setValue(newUser);
     }
 }

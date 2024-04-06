@@ -1,4 +1,4 @@
-package com.example.spot_seeker;
+package models;
 
 import android.widget.EditText;
 

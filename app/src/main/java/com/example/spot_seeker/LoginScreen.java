@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +20,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+
+import models.FormValidationHelpers;
+import models.User;
+import models.UserSingleton;
 
 public class LoginScreen extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
     Button btnSignIn, btnSignUp, btnforgotPassword;
@@ -115,6 +117,11 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                     Log.d("TRANSACTION IDs", "THIS IS THE AMOUNT OF TRANSACTION IDS: " + transactionIds.size());
                     Log.d("LISTING IDs", "THIS IS THE AMOUNT OF LISTING IDS: " + listingIds.size());
                     if (edPassword.getText().toString().equals(password)) {
+                        int userId = Integer.valueOf(id);
+                        User loggedInUser = new User(userId, firstName, lastName, email, userName, password, listingIds, transactionIds);
+                        // Store the user in the UserSingleton class that will be
+                        // accessible anywhere throughout the app
+                        UserSingleton.setUser(loggedInUser);
                         Intent intent = new Intent(this, HomeScreen.class);
                         startActivity(intent);
                     } else {
