@@ -1,3 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="options_list" >
+        <item>Option 1 + CAD$ 0.00</item>
+        <item>Option 2 + CAD$ 0.00</item>
+        <item>Option 3 + CAD$ 0.00</item>
+        <item>Option 4 + CAD$ 0.00</item>
+    </string-array>
 </resources>

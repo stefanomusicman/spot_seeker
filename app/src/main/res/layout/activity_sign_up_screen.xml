@@ -48,6 +48,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/firstName"
             android:hint="Fist Name"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -62,6 +64,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/lastName"
             android:hint="Last Name"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -78,6 +82,8 @@
             android:hint="User Name"
             app:counterEnabled="true"
             app:counterMaxLength="10"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -90,6 +96,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/email"
             android:hint="Email"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -106,6 +114,8 @@
             android:hint="Password"
             app:passwordToggleEnabled="true"
             android:inputType="textPassword"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -117,8 +127,9 @@
             android:id="@+id/btnSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirm"
-            android:background="#FA2750"
+            android:text="Sign Up"
+            android:textSize="20sp"
+            android:background="@drawable/button_background"
             android:textColor="#fff"
             />
         <Button

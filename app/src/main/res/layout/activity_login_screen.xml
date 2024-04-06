@@ -40,6 +40,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -54,6 +56,8 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             app:passwordToggleEnabled="true"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -81,8 +85,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/spotseeker"
+            android:background="@drawable/button_background"
             android:text="Sign In"
+            android:textSize="20sp"
             android:textColor="#fff"
             android:transitionName="buttomSignIn_tran" />
 
