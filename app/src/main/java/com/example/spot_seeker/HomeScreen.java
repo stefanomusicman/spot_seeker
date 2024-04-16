@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,10 +25,7 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        drawerLayout = findViewById(R.id.drawerLayout);
-        NavigationView navigationView = findViewById(R.id.navigationView);
-        navigationView.setItemIconTintList(null); // Remove icon tinting
-        navigationView.setNavigationItemSelectedListener(this);
+        final DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
 
         findViewById(R.id.menuImage).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,43 +33,26 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
                 drawerLayout.openDrawer(GravityCompat.START);
             }
         });
-    }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        Fragment fragment = null;
-        int itemId = item.getItemId();
+        NavigationView navigationView = findViewById(R.id.navigationView);
+        navigationView.setItemIconTintList(null);
 
-        if (itemId == R.id.Profile) {
-            fragment = new Profile();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Handle navigation view item clicks here.
+                int id = item.getItemId();
 
-        } else if (itemId == R.id.parkingSpot) {
-            fragment = new Myspots();
-        } else if (itemId == R.id.Home) {
-            Intent intent = new Intent(this, HomeScreen.class);
-            startActivity(intent);
-            return true;
-        } else if (itemId == R.id.logout) {
-            Intent intent = new Intent(this, LoginScreen.class);
-            startActivity(intent);
-            return true; // Return true to prevent further actions
-        }
+                if (id == R.id.registerSpot) {
+                    // Navigate to RegisterParkingSpot activity
+                    Intent intent = new Intent(HomeScreen.this, RegisterParkingSpot.class);
+                    startActivity(intent);
+                    drawerLayout.closeDrawer(GravityCompat.START);
+                    return true;
+                }
 
-        if (fragment != null) {
-            replaceFragment(fragment);
-            drawerLayout.closeDrawer(GravityCompat.START);
-            return true;
-        }
-
-        return false;
-    }
-
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragmentContainer, fragment);
-        transaction.commit();
+                return false;
+            }
+        });
     }
 }
-
-

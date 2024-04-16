@@ -1,27 +1,20 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/Home"
-            android:icon="@drawable/home"
-            android:title="Home" />
-
-        <item
-            android:id="@+id/Profile"
-            android:icon="@drawable/man"
-            android:title="Profile" />
-
-        <item
-            android:id="@+id/parkingSpot"
-            android:icon="@drawable/spots"
-            android:title="My Spots" />
-        <item
-            android:id="@+id/logout"
-            android:icon="@drawable/log_out"
-            android:title="Logout" />
-    </group>
-
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/man"
+        android:icon="@drawable/man"
+        android:title="Profile"
+        />
+    <item android:id="@+id/parkingSpot"
+        android:icon="@drawable/spots"
+        android:title="My Spots"
+        />
+    <item android:id="@+id/menu"
+        android:icon="@drawable/dashboard"
+        android:title="Dashboard"
+        />
+    <item android:id="@+id/registerSpot"
+        android:icon="@drawable/dashboard"
+        android:title="Register New Spot"
+        />
 
 </menu>

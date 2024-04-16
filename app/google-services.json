@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "990767858891",
+    "firebase_url": "https://spotseekerdatabase-default-rtdb.firebaseio.com",
+    "project_id": "spotseekerdatabase",
+    "storage_bucket": "spotseekerdatabase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990767858891:android:26a7077a105322c5db874e",
+        "android_client_info": {
+          "package_name": "com.example.spot_seeker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Sc2yp1akPaJl9dm7XRsa-jI7mTI5zHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990767858891:android:30712bcddd935234db874e",
+        "android_client_info": {
+          "package_name": "com.example.week7lab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Sc2yp1akPaJl9dm7XRsa-jI7mTI5zHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
