@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailedSpot">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/detailName"
+        android:layout_marginTop="14dp"
+        android:text="Parking Spot"
+        android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="380dp"
+        android:layout_height="200dp"
+        android:id="@+id/cardImage"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp">
+
+        <ImageView
+            android:layout_width="380dp"
+            android:layout_height="200dp"
+            android:id="@+id/detailImage"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:src="@drawable/parking_lot"
+            android:scaleType="centerCrop"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Country:"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goes Country"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:id="@+id/Country"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City:"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goes City"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:id="@+id/City"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address:"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goes address"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:id="@+id/address"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Services:"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goes Services"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:id="@+id/detailDesc"/>
+
+    <!-- Delete Spot Button -->
+    <Button
+        android:id="@+id/btnDeleteSpot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Delete Spot"
+        android:layout_marginTop="50dp"/>
+
+</LinearLayout>

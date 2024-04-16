@@ -8,13 +8,13 @@
         android:icon="@drawable/spots"
         android:title="My Spots"
         />
-    <item android:id="@+id/menu"
-        android:icon="@drawable/dashboard"
-        android:title="Dashboard"
-        />
     <item android:id="@+id/registerSpot"
-        android:icon="@drawable/dashboard"
+        android:icon="@drawable/home"
         android:title="Register New Spot"
+        />
+    <item android:id="@+id/logout"
+        android:icon="@drawable/log_out"
+        android:title="Logout"
         />
 
 </menu>
