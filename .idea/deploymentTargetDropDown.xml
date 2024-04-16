@@ -2,12 +2,6 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="RegisterParkingSpot">
-        <State />
-      </entry>
-      <entry key="SplashScreen">
-        <State />
-      </entry>
       <entry key="app">
         <State>
           <targetSelectedWithDropDown>
@@ -16,12 +10,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\stefp\.android\avd\Pixel_5_API_30_6_inch_screen.avd" />
+                  <value value="C:\Users\igorr\.android\avd\Pixel_4_API_24.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-06T01:50:28.291491700Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-04-16T15:29:33.529760400Z" />
         </State>
       </entry>
     </value>
