@@ -24,6 +24,15 @@ public class Listing {
         this.additionalServices = additionalServices;
     }
 
+    public Listing(int listId, String address, ArrayList<String> additionalServices) {
+        this.listId = listId;
+        this.address = address;
+        this.latitude = 0;
+        this.longitude = 0;
+        this.isAvailable = true;
+        this.additionalServices = additionalServices;
+    }
+
     public int getListId() {
         return listId;
     }
