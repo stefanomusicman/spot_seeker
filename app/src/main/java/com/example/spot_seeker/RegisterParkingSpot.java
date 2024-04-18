@@ -20,9 +20,9 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.HashSet;
 import java.util.Set;
 
-public class RegisterParkingSpot extends AppCompatActivity {
+public class RegisterParkingSpot extends AppCompatActivity implements View.OnClickListener {
 
-   TextInputLayout addressTextInputLayout, pricePerHourTextInputLayout, additionalServicesTextInputLayout;
+    TextInputLayout addressTextInputLayout, pricePerHourTextInputLayout, additionalServicesTextInputLayout;
     MaterialAutoCompleteTextView additionalServicesAutoCompleteTextView;
     CheckBox termsCheckBox;
     Button registerSpotButton;
@@ -35,42 +35,6 @@ public class RegisterParkingSpot extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_parking_spot);
         initialize();
-
-        selectedOptionsSet = new HashSet<>();
-        adapter = new SelectedOptionsAdapter(selectedOptionsSet);
-        selectedOptionsRecyclerView.setAdapter(adapter);
-        selectedOptionsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        //create a list of additional services
-        additionalServicesAutoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = parent.getItemAtPosition(position).toString();
-                selectedOptionsSet.add(selectedItem);
-                adapter.notifyDataSetChanged();
-                selectedOptionsRecyclerView.setVisibility(View.VISIBLE);
-            }
-        });
-
-        //delete additional services
-        adapter.setOnItemLongClickListener(new SelectedOptionsAdapter.OnItemLongClickListener() {
-            @Override
-            public void onItemLongClick(String option) {
-                selectedOptionsSet.remove(option);
-                adapter.notifyDataSetChanged();
-            }
-        });
-
-        registerSpotButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!termsCheckBox.isChecked()) {
-                    Toast.makeText(RegisterParkingSpot.this, "Please Accept Terms and Conditions", Toast.LENGTH_SHORT).show();
-                } else if (validateFields()) {
-                    registerParkingSpot();
-                }
-            }
-        });
     }
 
     private void initialize() {
@@ -81,6 +45,43 @@ public class RegisterParkingSpot extends AppCompatActivity {
         termsCheckBox = findViewById(R.id.checkBoxTerms);
         registerSpotButton = findViewById(R.id.btnRegisterSpot);
         selectedOptionsRecyclerView = findViewById(R.id.selectedOptionsRecyclerView);
+
+        selectedOptionsSet = new HashSet<>();
+        adapter = new SelectedOptionsAdapter(selectedOptionsSet);
+        selectedOptionsRecyclerView.setAdapter(adapter);
+        selectedOptionsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // ---------------------------- ONCLICK LISTENERS ---------------------------------
+        registerSpotButton.setOnClickListener(this);
+        additionalServicesAutoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                selectedOptionsSet.add(selectedItem);
+                adapter.notifyDataSetChanged();
+                selectedOptionsRecyclerView.setVisibility(View.VISIBLE);
+            }
+        });
+        adapter.setOnItemLongClickListener(new SelectedOptionsAdapter.OnItemLongClickListener() {
+            @Override
+            public void onItemLongClick(String option) {
+                selectedOptionsSet.remove(option);
+                adapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+
+        if(id == R.id.btnRegisterSpot) {
+            if (!termsCheckBox.isChecked()) {
+                Toast.makeText(RegisterParkingSpot.this, "Please Accept Terms and Conditions", Toast.LENGTH_SHORT).show();
+            } else if (validateFields()) {
+                registerParkingSpot();
+            }
+        }
     }
 
     private boolean validateFields() {
