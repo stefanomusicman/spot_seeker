@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -22,29 +26,13 @@ public class MySpots extends AppCompatActivity implements AdapterView.OnItemClic
     ArrayList<Listing> listingsList;
     ListView lvParkingSpots;
     ParkingSpotAdapter parkingSpotAdapter;
+    ActivityResultLauncher aResLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_spots);
         initialize();
-//        CardView cardView = findViewById(R.id.cardView);
-//        cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MySpots.this, DetailedSpot.class));
-//            }
-//        });
-
-//        UserSingleton.getUserListings(new ListingsCallback() {
-//            @Override
-//            public void onListingsLoaded(ArrayList<Listing> listings) {
-//                // Handle the retrieved listings here
-//                Log.d("USER LISTINGS", listings.toString());
-//                // Do whatever you need with the listings, such as updating UI or processing data
-//                listingsList = listings;
-//            }
-//        });
     }
 
     private void initialize() {
@@ -60,6 +48,12 @@ public class MySpots extends AppCompatActivity implements AdapterView.OnItemClic
                 lvParkingSpots.setAdapter(parkingSpotAdapter);
             }
         });
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        initialize();
     }
 
     @Override

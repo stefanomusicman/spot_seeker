@@ -17,6 +17,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 import models.Listing;
+import models.User;
+import models.UserSingleton;
 
 public class DetailedSpot extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,6 +26,7 @@ public class DetailedSpot extends AppCompatActivity implements View.OnClickListe
     ListView lvAdditionalServices;
     DatabaseReference usersDatabase, listingsDatabase;
     Listing listing;
+    Button btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class DetailedSpot extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initialize() {
+        btnDelete = findViewById(R.id.btnDelete);
+        btnDelete.setOnClickListener(this);
         // ------------ GET INFORMATION SENT FROM INTENT FOR LISTING --------
         Intent intent = getIntent();
         listing = (Listing) intent.getSerializableExtra("listing");
@@ -56,7 +61,19 @@ public class DetailedSpot extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
 
         if(id == R.id.btnDelete) {
-
+            deleteListing();
         }
+    }
+
+    private void deleteListing() {
+        User loggedInUser = UserSingleton.getUser();
+        // Update the UserSingleton object by removing the Listing ID from the listingIds list
+        loggedInUser.getListingIds().remove(Integer.valueOf(listing.getListId()));
+        // Update the Users collection in the database with the newly modified UserSingleton object
+        usersDatabase.child(String.valueOf(loggedInUser.getUserId())).setValue(loggedInUser);
+        // Update the Listings collection in the database by removing the document
+        listingsDatabase.child(String.valueOf(listing.getListId())).removeValue();
+        setResult(RESULT_OK);
+        finish();
     }
 }
