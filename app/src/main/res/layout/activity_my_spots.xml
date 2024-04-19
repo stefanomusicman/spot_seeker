@@ -23,6 +23,7 @@
             android:src="@drawable/man" />
 
         <TextView
+            android:id="@+id/tvFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Full Name"
@@ -32,6 +33,7 @@
             android:layout_gravity="center"/>
 
         <TextView
+            android:id="@+id/tvUserId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="User Code"

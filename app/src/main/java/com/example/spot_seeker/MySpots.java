@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
@@ -22,11 +23,10 @@ import models.ParkingSpotAdapter;
 import models.UserSingleton;
 
 public class MySpots extends AppCompatActivity implements AdapterView.OnItemClickListener {
-
+    TextView tvFullName, tvUserId;
     ArrayList<Listing> listingsList;
     ListView lvParkingSpots;
     ParkingSpotAdapter parkingSpotAdapter;
-    ActivityResultLauncher aResLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,12 @@ public class MySpots extends AppCompatActivity implements AdapterView.OnItemClic
     }
 
     private void initialize() {
+        tvFullName = findViewById(R.id.tvFullName);
+        tvUserId = findViewById(R.id.tvUserId);
+        String fullName = UserSingleton.getUser().getFirstName() + " " + UserSingleton.getUser().getLastName();
+        String userId = "User ID: " + String.valueOf(UserSingleton.getUser().getUserId());
+        tvFullName.setText(fullName);
+        tvUserId.setText(userId);
         UserSingleton.getUserListings(new ListingsCallback() {
             @Override
             public void onListingsLoaded(ArrayList<Listing> listings) {
