@@ -2,9 +2,10 @@ package models;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Listing {
+public class Listing implements Serializable {
     private int listId;
     private String address;
     private double latitude;

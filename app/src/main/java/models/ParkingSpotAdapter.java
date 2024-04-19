@@ -1,12 +1,14 @@
 package models;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.spot_seeker.DetailedSpot;
 import com.example.spot_seeker.R;
 
 import java.util.ArrayList;
@@ -48,7 +50,14 @@ public class ParkingSpotAdapter extends BaseAdapter {
 
         // Access to each item in the card
         tvAddress = listingCard.findViewById(R.id.tvAddress);
-        // TODO: ADD AN ONCLICK LISTENER TO GO TO PARKING SPOT DETAILS SCREEN WHEN USER CLICKS ON CARD
+        listingCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailedSpot.class);
+                intent.putExtra("listing", userListings.get(position));
+                context.startActivity(intent);
+            }
+        });
 
         // Populate the information of listing_card.xml
         listing = userListings.get(position);
