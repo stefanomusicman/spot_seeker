@@ -31,7 +31,7 @@
                 android:layout_marginTop="10dp"/>
 
             <TextView
-                android:id="@+id/listAddress"
+                android:id="@+id/tvAddress"
                 android:layout_width="120dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="30dp"
@@ -40,16 +40,16 @@
                 android:text="goes_address"
                 android:textSize="15dp"
                 android:textAlignment="center"/>
-            <TextView
-                android:id="@+id/listCity"
-                android:layout_width="120dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="25dp"
-                android:layout_toEndOf="@id/listAddress"
-                android:text="goes_City"
-                android:textSize="15dp"
-                android:textAlignment="center"/>
+<!--            <TextView-->
+<!--                android:id="@+id/tvCity"-->
+<!--                android:layout_width="120dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginStart="30dp"-->
+<!--                android:layout_marginTop="25dp"-->
+<!--                android:layout_toEndOf="@id/tvAddress"-->
+<!--                android:text="goes_City"-->
+<!--                android:textSize="15dp"-->
+<!--                android:textAlignment="center"/>-->
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
