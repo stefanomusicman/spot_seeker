@@ -5,12 +5,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import models.User;
 import models.UserSingleton;
 
 public class Profile extends AppCompatActivity {
@@ -18,7 +20,7 @@ public class Profile extends AppCompatActivity {
     private TextView tvFullName, tvUserId;
     private EditText edFName, edLName, edUsername;
     private Button btnUpdate;
-    private DatabaseReference userDatabase;
+    private DatabaseReference usersDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +38,7 @@ public class Profile extends AppCompatActivity {
         edUsername = findViewById(R.id.edUsername);
         btnUpdate = findViewById(R.id.btnUpdate);
         // Initialize Database Reference
-        userDatabase = FirebaseDatabase.getInstance().getReference("Users");
+        usersDatabase = FirebaseDatabase.getInstance().getReference("Users");
         // Print User's full name and user id in header section beneath the user icon
         String fullName = UserSingleton.getUser().getFirstName() + " " + UserSingleton.getUser().getLastName();
         String userId = String.valueOf(UserSingleton.getUser().getUserId());
@@ -53,14 +55,33 @@ public class Profile extends AppCompatActivity {
     }
 
     private void updateUser() {
-        if(!edFName.getText().toString().trim().isEmpty()) {
-            UserSingleton.getUser().setFirstName(edFName.getText().toString().trim());
+        boolean fName = edFName.getText().toString().trim().isEmpty();
+        boolean lName = edLName.getText().toString().trim().isEmpty();
+        User loggedInUser = UserSingleton.getUser();
+        boolean userName = edUsername.getText().toString().trim().isEmpty();
+        if(!fName) {
+            loggedInUser.setFirstName(edFName.getText().toString().trim());
         }
-        if(!edLName.getText().toString().trim().isEmpty()) {
-            UserSingleton.getUser().setLastName(edFName.getText().toString().trim());
+        if(!lName) {
+            loggedInUser.setLastName(edLName.getText().toString().trim());
         }
-        if(!edUsername.getText().toString().trim().isEmpty()) {
-            UserSingleton.getUser().setUserName(edUsername.getText().toString().trim());
+        if(!userName) {
+            loggedInUser.setUserName(edUsername.getText().toString().trim());
+        }
+        if(fName && lName && userName) {
+            Toast.makeText(this, "Nothing to update", Toast.LENGTH_SHORT).show();
+        } else {
+            // UPDATE THE DATABASE
+            usersDatabase.child(String.valueOf(loggedInUser.getUserId())).setValue(loggedInUser);
+            // SHOW CONFIRMATION MESSAGE
+            Toast.makeText(this, "User has been successfully updated!", Toast.LENGTH_SHORT).show();
+            // CLEAR ALL INPUT FIELDS
+            edFName.setText("");
+            edLName.setText("");
+            edUsername.setText("");
+            // UPDATE THE USER'S NAME IN THE HEADER SECTION
+            String fullName = UserSingleton.getUser().getFirstName() + " " + UserSingleton.getUser().getLastName();
+            tvFullName.setText(fullName);
         }
     }
 }

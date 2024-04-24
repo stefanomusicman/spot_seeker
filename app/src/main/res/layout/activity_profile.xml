@@ -82,7 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter New Last Name"
-            android:inputType="textPostalAddress"
+            android:inputType="text"
             android:padding="8dp"/>
 
         <!-- Username -->
@@ -100,7 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter New Username"
-            android:inputType="phone"
+            android:inputType="text"
             android:padding="8dp"/>
 
         <!-- Button for updating information -->
