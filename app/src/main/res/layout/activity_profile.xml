@@ -22,6 +22,7 @@
             android:src="@drawable/man" />
 
         <TextView
+            android:id="@+id/tvFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Full Name"
@@ -31,6 +32,7 @@
             android:layout_gravity="center"/>
 
         <TextView
+            android:id="@+id/tvUserId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="User Code"
@@ -47,63 +49,63 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Email -->
+        <!-- First Name -->
         <TextView
             android:id="@+id/emailTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email Address"
+            android:text="First Name"
             android:textSize="16sp" />
 
-        <!-- Email Update -->
+        <!-- First Name Update -->
         <EditText
-            android:id="@+id/updateEmail"
+            android:id="@+id/edFName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="Enter New Email"
+            android:hint="Enter New First Name"
             android:inputType="textEmailAddress"
             android:padding="8dp"/>
 
-        <!-- Phone -->
-        <TextView
-            android:id="@+id/phoneTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Phone Number"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp"/>
-
-        <!-- Phone Update -->
-        <EditText
-            android:id="@+id/updatePhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter New Phone Number"
-            android:inputType="phone"
-            android:padding="8dp"/>
-
-        <!-- Address -->
+        <!-- Last Name -->
         <TextView
             android:id="@+id/addressTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address"
+            android:text="Last Name"
             android:textSize="16sp"
             android:layout_marginTop="16dp"/>
 
-        <!-- Address Update -->
+        <!-- Last Name Update -->
         <EditText
-            android:id="@+id/updateAddress"
+            android:id="@+id/edLName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter New Address"
+            android:hint="Enter New Last Name"
             android:inputType="textPostalAddress"
+            android:padding="8dp"/>
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/phoneTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Username Update -->
+        <EditText
+            android:id="@+id/edUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter New Username"
+            android:inputType="phone"
             android:padding="8dp"/>
 
         <!-- Button for updating information -->
         <Button
-            android:id="@+id/Updateinformation"
+            android:id="@+id/btnUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Update Information"
