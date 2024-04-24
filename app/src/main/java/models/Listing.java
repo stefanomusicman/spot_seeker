@@ -2,9 +2,10 @@ package models;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Listing {
+public class Listing implements Serializable {
     private int listId;
     private String address;
     private double latitude;
@@ -21,6 +22,15 @@ public class Listing {
         this.latitude = latitude;
         this.longitude = longitude;
         this.isAvailable = isAvailable;
+        this.additionalServices = additionalServices;
+    }
+
+    public Listing(int listId, String address, ArrayList<String> additionalServices) {
+        this.listId = listId;
+        this.address = address;
+        this.latitude = 0;
+        this.longitude = 0;
+        this.isAvailable = true;
         this.additionalServices = additionalServices;
     }
 

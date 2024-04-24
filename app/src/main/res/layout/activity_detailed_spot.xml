@@ -42,7 +42,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Country:"
+        android:text="Address"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="10dp"
@@ -50,17 +50,17 @@
         android:textSize="18sp"/>
 
     <TextView
+        android:id="@+id/tvAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Goes Country"
+        android:text="Print Address"
         android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:id="@+id/Country"/>
+        android:textSize="16sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="City:"
+        android:text="Is Available"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="10dp"
@@ -68,56 +68,37 @@
         android:textSize="18sp"/>
 
     <TextView
+        android:id="@+id/tvIsAvailable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Goes City"
+        android:text="Print Availability"
         android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:id="@+id/City"/>
+        android:textSize="16sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Address:"
+        android:text="Additional Services"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:textSize="18sp"/>
 
-    <TextView
+    <ListView
+        android:id="@+id/lvAdditionalServices"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Goes address"
-        android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:id="@+id/address"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Services:"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:textSize="18sp"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Goes Services"
-        android:layout_marginStart="10dp"
-        android:textSize="16sp"
-        android:id="@+id/detailDesc"/>
+        android:layout_height="120dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <!-- Delete Spot Button -->
     <Button
-        android:id="@+id/btnDeleteSpot"
+        android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Delete Spot"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="20dp"/>
 
 </LinearLayout>
