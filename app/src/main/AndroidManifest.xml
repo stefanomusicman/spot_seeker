@@ -22,9 +22,9 @@
         <activity
             android:name=".Profile"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".profile_user"
-            android:exported="false" />
+            android:exported="false" />-->
         <activity
             android:name=".RegisterParkingSpot"
             android:exported="false" />
@@ -55,6 +55,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyCtLBQnI9WJXyjvSCatTWBg6WpikTL2wY4" />
     </application>
 
 </manifest>
